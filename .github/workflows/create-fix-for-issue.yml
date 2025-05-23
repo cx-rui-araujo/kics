@@ -25,11 +25,11 @@ jobs:
             -e OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }} \
             ruigomes99/queryvibe:latest
 
-      - name: Print query_path from remediation.json
+      - name: Replace query.rego with generated one
         run: |
-          cat data/suggestion/remediation.json
           query_path=$(jq -r '.query_path' data/suggestion/remediation.json)
-          echo "query_path: $query_path"
+          echo "Replacing $query_path/query.rego with generated file"
+          cp data/suggestion/query.rego "$query_path/query.rego"
 
       - name: Create dummy file
         run: |
