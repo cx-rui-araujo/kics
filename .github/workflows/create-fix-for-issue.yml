@@ -18,6 +18,17 @@ jobs:
           app-id: ${{ vars.QUERY_GUARDIAN_APP_ID }}
           private-key: ${{ secrets.QUERY_GUARDIAN_PRIVATE_KEY }}
 
+      - name: Extract path from issue body
+        id: extract
+        run: |
+          echo "ISSUE_BODY<<EOF" >> $GITHUB_ENV
+          echo "${{ github.event.issue.body }}" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+          QUERY_PATH=$(echo "${{ github.event.issue.body }}" | grep -oE '/assets/queries/[^ )\n\r]+' | head -n1)
+          echo "Extracted path: $QUERY_PATH"
+          echo "QUERY_PATH=$QUERY_PATH" >> $GITHUB_ENV
+
       - name: Create a dummy file
         run: |
           echo "This is a dummy file for issue #${{ github.event.issue.number }}" > dummy.txt
