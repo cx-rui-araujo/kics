@@ -47,9 +47,9 @@ jobs:
 
             # fix(queries): PR for issue #${{ github.event.issue.number }}
 
-            - Automatically created PR
+            - Automatically created PR.
 
-            
+
             I submit this contribution under the Apache-2.0 license.
           branch: "issue-${{ github.event.issue.number }}"
           base: ${{ github.event.repository.default_branch }}
