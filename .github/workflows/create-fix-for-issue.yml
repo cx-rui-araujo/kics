@@ -40,7 +40,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ steps.app-token.outputs.token }}
-          commit-message: "Add dummy file for issue #${{ github.event.issue.number }}"
+          commit-message: "fix issue #${{ github.event.issue.number }}"
           title: "fix(queries): PR for issue #${{ github.event.issue.number }}"
           body: >
             Closes #${{ github.event.issue.number }}
