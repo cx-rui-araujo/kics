@@ -45,7 +45,7 @@ jobs:
           body: >
             Closes #${{ github.event.issue.number }}
 
-            # fix(queries): PR for issue #${{ github.event.issue.number }}
+            # fix(query): PR for issue #${{ github.event.issue.number }}
 
             - Automatically created PR.
 
