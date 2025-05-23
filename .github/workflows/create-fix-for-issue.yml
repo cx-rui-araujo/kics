@@ -21,8 +21,8 @@ jobs:
       - name: Extract query path from issue body
         id: extract
         run: |
-          body="${{ github.event.issue.body }}"
-          echo "$body" | grep -oE '\/assets\/queries\/[^\)\s]+' | head -n 1 > query_path.txt
+          echo "${{ github.event.issue.body }}" > issue_body.txt
+          grep -oE '/assets/queries/[^\)\s]+' issue_body.txt | head -n 1 > query_path.txt
           echo "QUERY_PATH=$(cat query_path.txt)" >> $GITHUB_OUTPUT
 
       - name: Create a dummy file
