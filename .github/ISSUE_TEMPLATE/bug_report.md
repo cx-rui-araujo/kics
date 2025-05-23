@@ -7,40 +7,24 @@ assignees: ''
 
 ---
 
-Found a bug? You're welcome to [![GitHub Discussions](https://img.shields.io/badge/chat-discussions-blue.svg?style=flat-square)](https://github.com/Checkmarx/kics/discussions)
+## Modify/Create
 
+Indicate if you want to modify or create a new query.
 
-- **Please make sure to:**
-  - Describe in details what the problem is
-  - Attach a log file with relevant data preferably in DEBUG level (`--log-level=DEBUG`)
-  - Attach the scanned sample files, anonymize the data if the original file cannot be provided
-  - When attaching files to the issue make sure they are properly formatted
+## Query Link/Metadata
 
-### Expected Behavior
+Example: https://github.com/Checkmarx/kics/tree/bfe8ba0fe716ba75c57a843123e8cb17aed2f082/assets/queries/terraform/azure/storage_account_not_forcing_https
 
-(Which results are expected from KICS?)
+## FN/FP
 
+Indicate if it is a FN or a FP.
 
+## Description
 
+Write a short description.
 
-### Actual Behavior
+## Sample
 
-(Formatted logs and samples helps us to better understand the issue)
-
-
-
-
-### Steps to Reproduce the Problem
-
-(Command line arguments and flags used)
-
-1.  step 1
-2.  step 2
-3.  step 3
-
-### Specifications
-(N/A if not applicable)
-
--   Version:
--   Platform:
--   Subsystem: 
+```
+Code Here
+```
