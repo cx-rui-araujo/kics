@@ -21,16 +21,9 @@ jobs:
       - name: Extract query path from issue body
         id: extract
         run: |
-          # Save body to a temporary file to avoid shell escaping issues
-          echo "${{ github.event.issue.body }}" > issue_body.txt
-
-          # Extract the /assets/queries/... path from the GitHub URL in the body
-          QUERY_PATH=$(grep -oE '/assets/queries/[^ )\n\r]+' issue_body.txt | head -n1)
-
-          echo "Extracted path: $QUERY_PATH"
-
-          # Export to environment
-          echo "QUERY_PATH=$QUERY_PATH" >> $GITHUB_ENV
+          body="${{ github.event.issue.body }}"
+          echo "$body" | grep -oE '\/assets\/queries\/[^\)\s]+' | head -n 1 > query_path.txt
+          echo "QUERY_PATH=$(cat query_path.txt)" >> $GITHUB_OUTPUT
 
       - name: Create a dummy file
         run: |
