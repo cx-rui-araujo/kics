@@ -31,9 +31,8 @@ jobs:
           echo "Replacing $query_path/query.rego with generated file"
           cp data/suggestion/query.rego "$query_path/query.rego"
 
-      - name: Create dummy file
-        run: |
-          echo "This is a dummy file for issue #${{ github.event.issue.number }}" > dummy.txt
+      - name: Remove data folder
+        run: rm -rf data
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
