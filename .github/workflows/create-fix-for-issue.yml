@@ -18,18 +18,20 @@ jobs:
           app-id: ${{ vars.QUERY_GUARDIAN_APP_ID }}
           private-key: ${{ secrets.QUERY_GUARDIAN_PRIVATE_KEY }}
 
-      - name: Extract query path from issue body
-        id: extract
+      - name: Run queryvibe Docker image
         run: |
-          printf '%s\n' "${{ github.event.issue.body }}" > issue_body.txt
-          grep -oE '/assets/queries/[^\)\s]+' issue_body.txt | head -n 1 > query_path.txt
-          echo "QUERY_PATH=$(cat query_path.txt)" >> $GITHUB_OUTPUT
+          mkdir -p data
+          docker run --rm -v ${{ github.workspace }}/data:/app/data \
+            -e OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }} \
+            ruigomes99/queryvibe:latest
 
-      - name: Show extracted query path
+      - name: Print query_path from remediation.json
         run: |
-          echo "Extracted QUERY_PATH: ${{ steps.extract.outputs.QUERY_PATH }}"
+          cat data/suggestion/remediation.json
+          query_path=$(jq -r '.query_path' data/suggestion/remediation.json)
+          echo "query_path: $query_path"
 
-      - name: Create a dummy file
+      - name: Create dummy file
         run: |
           echo "This is a dummy file for issue #${{ github.event.issue.number }}" > dummy.txt
 
