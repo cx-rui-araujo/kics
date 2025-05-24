@@ -25,7 +25,7 @@ jobs:
             -u "$(id -u):$(id -g)" \
             -v ${{ github.workspace }}/data:/app/data \
             -e OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }} \
-            ruigomes99/queryvibe:latest patchnotes
+            ruigomes99/queryvibe:latest github
 
       - name: Replace query.rego with generated one
         run: |
