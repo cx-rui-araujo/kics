@@ -48,5 +48,5 @@ jobs:
 
 
             I submit this contribution under the Apache-2.0 license.
-          branch: "cronjob-update-$(date +%Y%m%d%H%M%S)"
+          branch: "cronjob-update-${{ github.run_id }}"
           base: ${{ github.event.repository.default_branch }}
