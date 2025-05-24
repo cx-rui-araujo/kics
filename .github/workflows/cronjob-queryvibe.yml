@@ -30,7 +30,7 @@ jobs:
 
       - name: Move generated cronjob folder
         run: |
-          mv ./data/cronjob .
+          mv ./data/cronJob .
 
       - name: Remove data folder
         run: rm -rf data
