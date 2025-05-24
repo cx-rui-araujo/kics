@@ -39,10 +39,10 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ steps.app-token.outputs.token }}
-          commit-message: "chore(cronjob): update Terraform AWS queries based on release v5.98.0"
-          title: "chore(cronjob): update Terraform AWS queries based on release v5.98.0"
+          commit-message: "chore(cronjob): update Terraform AWS queries"
+          title: "chore(cronjob): update Terraform AWS queries"
           body: >
-            # chore(cronjob): update Terraform AWS queries based on release v5.98.0
+            # chore(cronjob): update Terraform AWS queries
 
             - Automatically created PR.
 
