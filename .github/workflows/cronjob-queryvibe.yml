@@ -6,7 +6,7 @@ on:
   workflow_dispatch:      # Allows manual trigger
 
 jobs:
-  create-pr:
+  iac-scraping-and-generate-fixes:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
