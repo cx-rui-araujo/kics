@@ -28,7 +28,7 @@ jobs:
             -e OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }} \
             ruigomes99/queryvibe:latest patchnotes
 
-      - name: Move generated cronjob folder
+      - name: Move generated cronJob folder
         run: |
           mv ./data/cronJob .
 
